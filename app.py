@@ -858,6 +858,7 @@ def chat():
     return jsonify({"reply": reply})
 
 
+init_db()  # must run unconditionally so gunicorn creates the tables too
+
 if __name__ == "__main__":
-    init_db()
     app.run(debug=os.environ.get("FLASK_DEBUG") == "1", port=5000)
